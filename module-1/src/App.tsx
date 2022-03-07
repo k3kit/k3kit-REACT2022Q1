@@ -7,7 +7,7 @@ import './App.css';
 import Layout from './components/layout/Layout';
 function App() {
   return (
-    <>
+    <div className="container">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -15,7 +15,7 @@ function App() {
           <Route path="*" element={<NotfoundPage />} />
         </Route>
       </Routes>
-    </>
+    </div>
   );
 }
 

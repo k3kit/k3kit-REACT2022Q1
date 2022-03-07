@@ -1,0 +1,42 @@
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+  }
+
+
+  header > a:hover {
+    text-decoration: underline;
+  }
+
+  header > a {
+    color: white;
+    text-decoration: none;
+    padding: 0 1rem;
+  }
+
+  header > a:hover {
+    text-decoration: underline;
+  }
+
+
+  .main-container {
+    max-width: 900px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0 auto;
+  }
+  main {
+    min-height: calc(100vh - 85px - 22px);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  
+.active {
+    color:  #7045ff;;
+    cursor: default;
+  }

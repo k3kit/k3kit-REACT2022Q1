@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import './style.css';
 
 const Layout = () => {
   return (
     <>
-      <header className="App-header">
-        <Link to="/">Home</Link>
-        <Link to="/about">About us</Link>
+      <header className="header">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About us</NavLink>
       </header>
-      <Outlet />
+      <main className="main-container">
+        <Outlet />
+      </main>
+
       <footer>kekit</footer>
     </>
   );
