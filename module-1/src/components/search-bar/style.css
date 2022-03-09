@@ -1,9 +1,27 @@
-.search-bar{
-    display: flex;
-    justify-items: center;
-    margin: 0 auto;
-    width: 100%;
-    justify-content: center;
+.search-bar {
+  display: flex;
+  justify-items: center;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 33px;
 }
 
+.search-button {
+  width: 35px;
+  height: 35px;
+  background-color: #1b1c23;
+  border-radius: 50%;
+  cursor: pointer;
+}
+button
+{
+    border-width: 0;
+}
 
+.search-input{
+    border-radius: 20px;
+    outline: none;
+    border-width: 0;
+    background-color: rgba(188, 142, 231, 0.192);
+}

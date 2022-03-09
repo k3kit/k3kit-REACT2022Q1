@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import './style.css';
 export default class SearchButton extends Component {
   render() {
     return (
-      <button type="submit">
+      <button className="search-button" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.961 69.961">
           <path
             id="search"
