@@ -12,7 +12,6 @@ const Layout = () => {
       <main className="main-container">
         <Outlet />
       </main>
-
       <footer>kekit</footer>
     </>
   );
