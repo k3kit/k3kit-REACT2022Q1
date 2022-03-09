@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import SearchButton from './search-button';
+import './style.css';
 interface ISearch {
   searchInput: string;
 }
@@ -10,20 +11,24 @@ export default class SearchBar extends Component {
   };
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchInput: event.target.value });
-    const { searchInput } = this.state;
-    localStorage.setItem('searchInput', searchInput);
   };
 
   handeleFormSubmit = () => {
     const { searchInput } = this.state;
     localStorage.setItem('searchInput', searchInput);
-    // e.preventDefault();
   };
   render() {
     return (
-      <form onChange={this.handeleFormSubmit}>
+      <form onSubmit={this.handeleFormSubmit} className="search-bar">
         <label></label>
-        <input name="sear" type="text" placeholder="Search" onChange={this.handleChange} />
+        <input
+          className="search-input"
+          name="sear"
+          type="text"
+          placeholder="Search"
+          onChange={this.handleChange}
+        />
+        <SearchButton />
       </form>
     );
   }
