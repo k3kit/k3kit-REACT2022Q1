@@ -13,9 +13,10 @@ export default class SearchBar extends Component {
     this.setState({ searchInput: event.target.value });
   };
 
-  handeleFormSubmit = () => {
+  handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const { searchInput } = this.state;
     localStorage.setItem('searchInput', searchInput);
+    event.preventDefault();
   };
   render() {
     return (
