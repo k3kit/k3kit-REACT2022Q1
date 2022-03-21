@@ -10,6 +10,7 @@ function App() {
     <div className="container">
       <Routes>
         <Route path="/" element={<Layout />}>
+          learn react
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<NotfoundPage />} />
