@@ -10,6 +10,7 @@ export default class SearchBar extends Component {
   state: ISearch = {
     searchInput: '',
   };
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchInput: event.target.value });
   };
@@ -22,10 +23,11 @@ export default class SearchBar extends Component {
     const { searchInput } = this.state;
     localStorage.setItem('searchInput', searchInput);
   }
+
   componentDidMount() {
-    console.log('mount');
     this.setState({ searchInput: localStorage.getItem('searchInput') });
   }
+
   render() {
     return (
       <form onSubmit={this.handeleFormSubmit} className="search-bar">
