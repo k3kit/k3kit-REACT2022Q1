@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchButton from './search-button';
 import './style.css';
 interface ISearch {
+  [x: string]: string | number | readonly string[] | undefined;
   searchInput: string;
 }
 
@@ -14,17 +15,25 @@ export default class SearchBar extends Component {
   };
 
   handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    const { searchInput } = this.state;
-    localStorage.setItem('searchInput', searchInput);
     event.preventDefault();
   };
+
+  componentWillUnmount() {
+    const { searchInput } = this.state;
+    localStorage.setItem('searchInput', searchInput);
+  }
+  componentDidMount() {
+    console.log('mount');
+    this.setState({ searchInput: localStorage.getItem('searchInput') });
+  }
   render() {
     return (
       <form onSubmit={this.handeleFormSubmit} className="search-bar">
-        <label></label>
+        <label>Search:</label>
         <input
           className="search-input"
           name="sear"
+          value={this.state.searchInput}
           type="text"
           placeholder="Search"
           onChange={this.handleChange}
