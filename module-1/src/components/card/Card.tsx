@@ -6,11 +6,12 @@ interface Icard {
   first_name: string;
   email: string;
   gender: string;
+  test?: string;
 }
 
 const Card: FC<Icard> = ({ avatar, first_name, email, gender }: Icard) => {
   return (
-    <li className="card">
+    <li className="card" data-testid="card">
       <img className="card-img" src={`${avatar}`} alt="avatar" />
       <div className="card-description">
         <p className="first-name">Name:{first_name}</p>

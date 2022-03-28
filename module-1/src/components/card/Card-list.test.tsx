@@ -1,24 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import Card from './Card';
-import data from '../card/data';
-describe('Card component', () => {
-  it('Cards renders', () => {
-    render(
-      <ul className="card-item">
-        {data.map((el) => {
-          return (
-            <Card
-              key={el.id}
-              avatar={el.avatar}
-              first_name={el.first_name}
-              gender={el.gender}
-              email={el.email}
-            />
-          );
-        })}
-      </ul>
-    );
+import { CardList } from '../card-list/Card-list';
+import data from './data';
+
+describe('test ', () => {
+  test(' all card test', () => {
+    render(<CardList />);
+    const cards = screen.getAllByTestId('card');
+    expect(cards).toHaveLength(data.length);
+  });
+});
+
+describe('test ', () => {
+  test(' one card test', () => {
+    render(<CardList />);
     expect(screen.getByText(/Ignaz/)).toBeInTheDocument();
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByText(/ibrasted0@arizona.edu/)).toBeInTheDocument();
   });
 });
