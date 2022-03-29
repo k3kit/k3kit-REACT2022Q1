@@ -12,6 +12,9 @@ const Layout = () => {
         <NavLink data-testid="link-about" to="/about">
           About us
         </NavLink>
+        <NavLink data-testid="form-about" to="/form">
+          Form
+        </NavLink>
       </header>
       <main className="main-container">
         <Outlet />
