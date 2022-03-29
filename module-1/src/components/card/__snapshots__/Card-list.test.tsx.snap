@@ -1,0 +1,584 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test  list snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <ul
+        class="card-item"
+      >
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/culpamagnameius.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Ignaz
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              ibrasted0@arizona.edu
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/saepelaboriosamofficia.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Raoul
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              rfissenden1@google.ru
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Female
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/autinest.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Mavis
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              msimcock2@simplemachines.org
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/asperiorestemporaincidunt.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Ave
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              abovingdon3@tmall.com
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/velitporroid.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Eolande
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              efrascone4@wufoo.com
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/debitisomnisnesciunt.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Arlie
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              alansly5@360.cn
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/temporaetmaiores.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Rodie
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              rdoyley6@hubpages.com
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+        <li
+          class="card"
+          data-testid="card"
+        >
+          <img
+            alt="avatar"
+            class="card-img"
+            src="https://robohash.org/quiaquidemmagni.png?size=50x50&set=set1"
+          />
+          <div
+            class="card-description"
+          >
+            <p
+              class="first-name"
+            >
+              Name:
+              Tymon
+            </p>
+            <p
+              class="email"
+            >
+              Email: 
+              tmasterman7@scribd.com
+            </p>
+            <p
+              class="gender"
+            >
+              Gender: 
+              Male
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="card-item"
+    >
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/culpamagnameius.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Ignaz
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            ibrasted0@arizona.edu
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/saepelaboriosamofficia.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Raoul
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            rfissenden1@google.ru
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Female
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/autinest.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Mavis
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            msimcock2@simplemachines.org
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/asperiorestemporaincidunt.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Ave
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            abovingdon3@tmall.com
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/velitporroid.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Eolande
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            efrascone4@wufoo.com
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/debitisomnisnesciunt.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Arlie
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            alansly5@360.cn
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/temporaetmaiores.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Rodie
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            rdoyley6@hubpages.com
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+      <li
+        class="card"
+        data-testid="card"
+      >
+        <img
+          alt="avatar"
+          class="card-img"
+          src="https://robohash.org/quiaquidemmagni.png?size=50x50&set=set1"
+        />
+        <div
+          class="card-description"
+        >
+          <p
+            class="first-name"
+          >
+            Name:
+            Tymon
+          </p>
+          <p
+            class="email"
+          >
+            Email: 
+            tmasterman7@scribd.com
+          </p>
+          <p
+            class="gender"
+          >
+            Gender: 
+            Male
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
