@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AboutPage from './components/router/about-page';
-import HomePage from './components/router/home-page';
-import NotfoundPage from './components/router/notefount-page';
+import AboutPage from './pages/about-page';
+import HomePage from './pages/home-page';
+import NotfoundPage from './pages/notefount-page';
 import './App.css';
-import Layout from './components/router/layout/Layout';
+import Layout from './router/layout/Layout';
 function App() {
   return (
     <div className="container">

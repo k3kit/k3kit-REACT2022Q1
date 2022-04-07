@@ -1,6 +1,6 @@
 import React from 'react';
-import { CardList } from '../../card-list/Card-list';
-import SearchBar from '../../search-bar/search';
+import { CardList } from '../../components/card-list/cardList';
+import SearchBar from '../../components/search-bar/search';
 
 const HomePage = () => {
   return (
