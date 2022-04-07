@@ -4,10 +4,10 @@ import SearchBar from '../../components/search-bar/search';
 
 const HomePage = () => {
   return (
-    <div data-testid="home-page">
+    <>
       <SearchBar />
       <CardList />
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { json } from 'stream/consumers';
 import { CardItem } from './CardItem';
-
+import './style.css';
 export class CardList extends Component {
   state = {
     data: [],
@@ -22,13 +22,13 @@ export class CardList extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div>
-        <ul className="card-item">
+      <section className="card-section">
+        <div className="card-items">
           {data.map((el, i) => {
             return <CardItem el={el} key={i} />;
           })}
-        </ul>
-      </div>
+        </div>
+      </section>
     );
   }
 }

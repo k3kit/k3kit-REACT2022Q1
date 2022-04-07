@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
 *,
 *::before,
 *::after {
@@ -32,15 +36,9 @@ body {
   --primary-color: white;
 }
 
-
-
 body {
   background: var(--background);
   color: var(--color);
-  font: 14px "Open Sans", sans-serif;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
-
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -48,11 +46,11 @@ body {
   margin: 0;
 }
 
-.container {
+/* .container {
   max-width: 1200px;
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: auto;
-}
+} */

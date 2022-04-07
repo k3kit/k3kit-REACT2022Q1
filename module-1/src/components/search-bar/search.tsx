@@ -31,18 +31,20 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handeleFormSubmit} className="search-bar">
-        <label>Search:</label>
-        <input
-          className="search-input"
-          name="search"
-          value={this.state.searchInput}
-          type="text"
-          placeholder="Search"
-          onChange={this.handleChange}
-        />
-        <SearchButton />
-      </form>
+      <section>
+        <form onSubmit={this.handeleFormSubmit} className="search-bar">
+          <label>Search:</label>
+          <input
+            className="search-input"
+            name="search"
+            value={this.state.searchInput}
+            type="text"
+            placeholder="Search"
+            onChange={this.handleChange}
+          />
+          <SearchButton />
+        </form>
+      </section>
     );
   }
 }
