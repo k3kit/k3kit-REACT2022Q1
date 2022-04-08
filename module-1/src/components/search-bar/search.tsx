@@ -4,14 +4,13 @@ import './style.css';
 interface ISearch {
   searchInput: string;
 }
-
-export default class SearchBar extends Component {
+interface MyProps {
+  value: string;
+  onChanges: React.ChangeEventHandler<HTMLInputElement>;
+}
+export default class SearchBar extends Component<MyProps> {
   state: ISearch = {
     searchInput: '',
-  };
-
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ searchInput: event.target.value });
   };
 
   handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,14 +18,12 @@ export default class SearchBar extends Component {
   };
 
   componentWillUnmount() {
-    const { searchInput } = this.state;
-    localStorage.setItem('searchInput', searchInput);
+    localStorage.setItem('searchInput', this.props.value);
     console.log('unmount');
   }
 
   componentDidMount() {
     this.setState({ searchInput: localStorage.getItem('searchInput') });
-    console.log('mount');
   }
 
   render() {
@@ -37,10 +34,9 @@ export default class SearchBar extends Component {
           <input
             className="search-input"
             name="search"
-            value={this.state.searchInput}
+            value={this.props.value}
             type="text"
-            placeholder="Search"
-            onChange={this.handleChange}
+            onChange={this.props.onChanges}
           />
           <SearchButton />
         </form>
