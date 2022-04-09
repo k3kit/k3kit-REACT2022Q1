@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Modal } from './modal';
 import './style.css';
 interface a {
   id: number;
@@ -26,19 +27,46 @@ interface MyProps {
 }
 
 export class CardItem extends Component<MyProps> {
+  state = {
+    modal: true,
+  };
+
+  handleActive = () => {
+    this.setState({ modal: false });
+  };
   render() {
     const { el } = this.props;
-    return (
-      <li className="card" key={el.id}>
-        <img className="card-img" src={`${el.image}`} alt="avatar" />
-        <div className="card-description">
-          <h3>{el.name}</h3>
-          <p>{el.status}</p>
-          <p>{el.species}</p>
-          <p>{el.type}</p>
-          <p>{el.gender}</p>
+    let popup;
+    if (this.state.modal === false) {
+      popup = (
+        <div className="popup" onClick={() => this.setState({ modal: true })}>
+          <div className="popup_inner" onClick={(e) => e.stopPropagation()}>
+            <img className="card-img-popup" src={`${el.image}`} alt="avatar" />
+            <div className="card-description-popup">
+              <h3>Name: {el.name}</h3>
+              <p>Status: {el.status}</p>
+              <p>Species: {el.species}</p>
+              <p>Gender: {el.gender}</p>
+              <p>Created: {el.created}</p>
+              <p>Origin: {el.origin.name}</p>
+              <p>Location: {el.location.name}</p>
+            </div>
+          </div>
         </div>
-      </li>
+      );
+    }
+    return (
+      <>
+        <li className="card" key={el.id} onClick={this.handleActive}>
+          <img className="card-img" src={`${el.image}`} alt="avatar" />
+          <div className="card-description">
+            <h3>Name: {el.name}</h3>
+            <p>Status: {el.status}</p>
+            <p>Species: {el.species}</p>
+          </div>
+        </li>
+        {popup}
+      </>
     );
   }
 }
