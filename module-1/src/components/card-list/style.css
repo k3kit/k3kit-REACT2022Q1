@@ -59,7 +59,7 @@
 .popup_inner {
   position: absolute;
   width: 20%;
-  height: 64%;
+  height: 72%;
   left: 25%;
   right: 25%;
   top: 25%;
@@ -75,4 +75,11 @@
 .card-img-popup {
   width: 100%;
   border-radius: 0.2rem;
+}
+
+.loader {
+  padding-top: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

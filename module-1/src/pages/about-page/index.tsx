@@ -1,7 +1,11 @@
 import React from 'react';
-
+import './style.css';
 const AboutPage = () => {
-  return <div data-testid="about-page">About Page</div>;
+  return (
+    <div className="about-page" data-testid="about-page">
+      About Page
+    </div>
+  );
 };
 
 export default AboutPage;

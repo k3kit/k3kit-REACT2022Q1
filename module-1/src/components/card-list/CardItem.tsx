@@ -1,4 +1,6 @@
+import { loadavg } from 'os';
 import React, { Component } from 'react';
+import Spinner from '../lodading/spinner';
 import { Modal } from './modal';
 import './style.css';
 interface a {
@@ -24,6 +26,7 @@ interface a {
 
 interface MyProps {
   el: a;
+  loader: boolean;
 }
 
 export class CardItem extends Component<MyProps> {
@@ -37,6 +40,9 @@ export class CardItem extends Component<MyProps> {
   render() {
     const { el } = this.props;
     let popup;
+    if (this.props.loader) {
+      return <Spinner />;
+    }
     if (this.state.modal === false) {
       popup = (
         <div className="popup" onClick={() => this.setState({ modal: true })}>
