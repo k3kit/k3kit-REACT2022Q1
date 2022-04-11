@@ -11,14 +11,15 @@ export default class SearchBar extends Component<MyProps> {
   render() {
     return (
       <section>
-        <form onSubmit={this.props.s} className="search-bar">
+        <form onSubmit={this.props.s} className="search-bar" data-testid="form">
           <label> Search: </label>
           <input
             className="search-input"
             name="search"
-            value={this.props.value}
+            value={this.props.value || ''}
             type="text"
             onChange={this.props.onChanges}
+            data-testid="input"
           />
           <SearchButton />
         </form>

@@ -1,6 +1,6 @@
 import { loadavg } from 'os';
 import React, { Component } from 'react';
-import Spinner from '../lodading/spinner';
+import Spinner from '../loading/spinner';
 import { Modal } from './modal';
 import './style.css';
 interface a {

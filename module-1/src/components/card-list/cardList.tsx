@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spinner from '../lodading/spinner';
+import Spinner from '../loading/spinner';
 import SearchBar from '../search-bar/search';
 import { CardItem } from './CardItem';
 import './style.css';
@@ -13,13 +13,13 @@ export class CardList extends Component {
   };
 
   componentWillUnmount() {
-    localStorage.setItem('searchInput', this.state.value2);
-    localStorage.setItem('searchInput', this.state.value);
+    // localStorage.setItem('searchInput', this.state.value2);
+    // localStorage.setItem('searchInput', this.state.value);
   }
 
   async componentDidMount() {
-    this.setState({ value: localStorage.getItem('searchInput') });
-    this.setState({ value2: localStorage.getItem('searchInput') });
+    // this.setState({ value: localStorage.getItem('searchInput') });
+    // this.setState({ value2: localStorage.getItem('searchInput') });
     try {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?name=${this.state.value}`
@@ -85,8 +85,8 @@ export class CardList extends Component {
     return (
       <>
         <SearchBar
-          value={this.state.value2}
-          value2={this.state.value}
+          value={this.state.value2 || ''}
+          value2={this.state.value || ''}
           onChanges={this.handleChange}
           s={this.handeleFormSubmit}
         />

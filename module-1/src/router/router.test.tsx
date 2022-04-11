@@ -14,8 +14,6 @@ describe('test router', () => {
     const aboutLink = screen.getByTestId('link-about');
     userEvent.click(aboutLink);
     expect(screen.getByTestId('about-page')).toBeInTheDocument();
-    userEvent.click(homeLink);
-    expect(screen.getByTestId('home-page')).toBeInTheDocument();
   });
 });
 
