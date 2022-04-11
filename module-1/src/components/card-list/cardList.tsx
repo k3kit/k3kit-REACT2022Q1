@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { json } from 'stream/consumers';
 import Spinner from '../lodading/spinner';
 import SearchBar from '../search-bar/search';
 import { CardItem } from './CardItem';
@@ -8,29 +7,39 @@ export class CardList extends Component {
   state = {
     data: [],
     value: '',
+    value2: '',
     error: false,
     loading: true,
   };
 
+  componentWillUnmount() {
+    localStorage.setItem('searchInput', this.state.value2);
+    localStorage.setItem('searchInput', this.state.value);
+  }
+
   async componentDidMount() {
+    this.setState({ value: localStorage.getItem('searchInput') });
+    this.setState({ value2: localStorage.getItem('searchInput') });
     try {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?name=${this.state.value}`
       );
       const data = await response.json();
-      console.log(data);
-
       this.setState({ data: data.results, loading: false });
     } catch (err) {
       console.log(err);
     }
-    console.log(this.state.value);
   }
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: event.target.value });
-    console.log(this.state.value);
+  handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    this.setState({ value: this.state.value2 });
   };
+
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ value2: event.target.value });
+  };
+
   async componentDidUpdate(prevProps: { value: string }, prevState: { value: string }) {
     if (prevState.value !== this.state.value) {
       try {
@@ -48,6 +57,7 @@ export class CardList extends Component {
       }
     }
   }
+
   render() {
     const { data, error } = this.state;
     let cards;
@@ -74,7 +84,12 @@ export class CardList extends Component {
     }
     return (
       <>
-        <SearchBar value={this.state.value} onChanges={this.handleChange} />
+        <SearchBar
+          value={this.state.value2}
+          value2={this.state.value}
+          onChanges={this.handleChange}
+          s={this.handeleFormSubmit}
+        />
         {spin}
         {cards}
       </>
