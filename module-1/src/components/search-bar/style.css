@@ -15,16 +15,16 @@
   border-radius: 50%;
   cursor: pointer;
 }
-button
-{
-    border-width: 0;
+button {
+  border-width: 0;
 }
 
-.search-input{
-    border-radius: 20px;
-    outline: none;
-    border-width: 0;
-    background-color: rgba(188, 142, 231, 0.192);
-    color: #ebebeb;
-    height: 30px;
+.search-input {
+  border-radius: 20px;
+  outline: none;
+  border-width: 0;
+  background-color: rgba(188, 142, 231, 0.192);
+  color: #ebebeb;
+  height: 30px;
+  margin-left: 15px;
 }

@@ -1,29 +1,31 @@
-import React, { Component, FormEventHandler } from 'react';
+import React, { FC } from 'react';
 import SearchButton from './search-button';
 import './style.css';
 interface MyProps {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
   value: string;
-  value2: string;
-  onChanges: React.ChangeEventHandler<HTMLInputElement>;
-  s: FormEventHandler<HTMLFormElement>;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
 }
-export default class SearchBar extends Component<MyProps> {
-  render() {
-    return (
-      <section>
-        <form onSubmit={this.props.s} className="search-bar" data-testid="form">
-          <label> Search: </label>
-          <input
-            className="search-input"
-            name="search"
-            value={this.props.value || ''}
-            type="text"
-            onChange={this.props.onChanges}
-            data-testid="input"
-          />
-          <SearchButton />
-        </form>
-      </section>
-    );
-  }
-}
+export const SearchBar: FC<MyProps> = ({ query, setQuery, setValue }) => {
+  const handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setValue(query);
+  };
+  return (
+    <section>
+      <form onSubmit={handeleFormSubmit} className="search-bar" data-testid="form">
+        <label> Search: </label>
+        <input
+          className="search-input"
+          name="search"
+          value={query || ''}
+          type="text"
+          onChange={(event) => setQuery(event.target.value)}
+          data-testid="input"
+        />
+        <SearchButton />
+      </form>
+    </section>
+  );
+};
