@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
 import { UserType } from './cards-from';
@@ -6,43 +6,41 @@ import Input from './input';
 import Select from './select';
 import DateBirth from './date';
 import Switch from './switch';
-
+import { Image } from './images';
 export type Data = {
   firstName: string;
   lastName: string;
   country: string;
   birthDate: string;
-  preview: string;
   gender: string;
 };
 
 interface FormData {
-  setFormData: (state: UserType[] | ((prevVar: UserType[]) => UserType[])) => void;
+  setFormData: (value: UserType[] | ((prevState: UserType[]) => UserType[])) => void;
 }
 export const Forms: FC<FormData> = ({ setFormData }) => {
+  const [preview, setValue] = useState<string>();
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
     control,
-  } = useForm<Data>({
+  } = useForm({
     defaultValues: {
       firstName: '',
       lastName: '',
       country: '',
       birthDate: '',
-      preview: '',
       gender: '',
     },
     mode: 'onChange',
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    setFormData((state) => [...state, data]);
-    reset();
+    setFormData((state) => [...state, { data, preview }]);
   });
+
   return (
     <form className="form" onSubmit={onSubmit}>
       <label className="label fist-name" htmlFor="firstName">
@@ -93,7 +91,16 @@ export const Forms: FC<FormData> = ({ setFormData }) => {
           }}
         />
       </label>
-      <Switch control={control} name="gender" />
+      <Switch
+        control={control}
+        name="gender"
+        rules={{
+          required: false,
+        }}
+      />
+      <label htmlFor="image">
+        <Image setValue={setValue} />
+      </label>
       <label className="agree" htmlFor="agree">
         Check this box if you wanw to procceed.
         <input type="checkbox" name="agree" />

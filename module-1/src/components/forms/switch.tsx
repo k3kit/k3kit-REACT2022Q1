@@ -7,7 +7,6 @@ const Switch = (props: UseControllerProps<Data>) => {
   const { field, fieldState } = useController(props);
   const [value, setValue] = useState(field.value);
   useEffect(() => {
-    console.log(field.value);
     setValue(field.value ? 'male' : 'female');
   }, [field]);
   return (
