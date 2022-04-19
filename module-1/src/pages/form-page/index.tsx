@@ -6,7 +6,7 @@ const FormPage = () => {
   const [formData, setFormData] = useState<UserType[]>([]);
   console.log(formData);
   return (
-    <section className="form-section">
+    <section className="form-section" data-testid="form-page">
       <Forms setFormData={setFormData} />
       <div>
         {formData.map((item: UserType, i: number) => {

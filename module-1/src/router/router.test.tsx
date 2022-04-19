@@ -12,8 +12,13 @@ describe('test router', () => {
     );
     const homeLink = screen.getByTestId('link-home');
     const aboutLink = screen.getByTestId('link-about');
+    const formlink = screen.getByTestId('link-form');
     userEvent.click(aboutLink);
     expect(screen.getByTestId('about-page')).toBeInTheDocument();
+    userEvent.click(homeLink);
+    expect(screen.getByTestId('home-page')).toBeInTheDocument();
+    userEvent.click(formlink);
+    expect(screen.getByTestId('form-page')).toBeInTheDocument();
   });
 });
 
