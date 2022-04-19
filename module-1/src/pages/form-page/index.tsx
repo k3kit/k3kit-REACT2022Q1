@@ -8,10 +8,12 @@ const FormPage = () => {
   return (
     <section className="form-section">
       <Forms setFormData={setFormData} />
-      {formData.map((item: UserType, i: number) => {
-        const idx = i;
-        return <Cards fromValues={item} key={idx} />;
-      })}
+      <div>
+        {formData.map((item: UserType, i: number) => {
+          const idx = i;
+          return <Cards fromValues={item} key={idx} />;
+        })}
+      </div>
     </section>
   );
 };

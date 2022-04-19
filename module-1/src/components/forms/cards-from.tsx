@@ -7,8 +7,8 @@ export type UserType = {
     country?: string;
     birthDate?: string;
     gender?: string;
+    agree?: boolean;
   };
-
   preview?: string;
 };
 interface ICard {
@@ -24,7 +24,7 @@ export const Cards: FC<ICard> = ({ fromValues }) => {
         <p className="first-name">Name: {data.firstName}</p>
         <p className="email">Surname: {data.lastName}</p>
         <p>
-          Place and date of birth: {data.country} - {data.birthDate}
+          Place and date of birth: {data.country} - {data.birthDate?.toString()}
         </p>
         <p className="gender">Gender: {data.gender ? 'male' : 'female'}</p>
       </div>

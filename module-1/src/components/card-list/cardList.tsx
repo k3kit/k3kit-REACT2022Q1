@@ -11,27 +11,25 @@ export const CardList = () => {
   const [error, setError] = useState(false);
   const [isPending, setIsPending] = useState(true);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getData = async () => {
-    try {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${value}`);
-      if (response.status >= 400) {
-        setError(true);
-      } else {
-        const data = await response.json();
-        setCharacter(data.results);
-        setError(false);
-        console.log(character);
-        setIsPending(false);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${value}`);
+        if (response.status >= 400) {
+          setError(true);
+        } else {
+          const data = await response.json();
+          setCharacter(data.results);
+          setError(false);
+          console.log(character);
+          setIsPending(false);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (
