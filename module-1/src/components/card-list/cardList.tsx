@@ -36,11 +36,11 @@ export const CardList = () => {
     <>
       <SearchBar query={query} setQuery={setQuery} value={value} setValue={setValue} />
       {error && <h2 className="error">No Characters Found</h2>}
-      {/* {isPending && (
+      {isPending && (
         <div className="loader">
           <Spinner />
         </div>
-      )} */}
+      )}
       <section className="card-section">
         <div className="card-items">
           {character.map((char, i) => {
