@@ -1,16 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useState } from 'react';
+import appContext from '../../context/app-context';
 import SearchButton from './search-button';
 import './style.css';
-interface MyProps {
-  query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-}
-export const SearchBar: FC<MyProps> = ({ query, setQuery, setValue }) => {
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {}
+export const SearchBar: FC<Props> = () => {
+  const { addValue } = useContext(appContext);
+  const [query, setQuery] = useState('');
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
   const handeleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setValue(query);
+    addValue(query);
   };
   return (
     <section>
@@ -21,7 +24,7 @@ export const SearchBar: FC<MyProps> = ({ query, setQuery, setValue }) => {
           name="search"
           value={query || ''}
           type="text"
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={onChangeHandler}
           data-testid="input"
         />
         <SearchButton />
