@@ -15,6 +15,7 @@ export type Data = {
   birthDate: string;
   gender: string;
   agree: boolean;
+  file: any;
 };
 
 // interface FormData {
@@ -57,6 +58,7 @@ export const Forms: FC = () => {
       birthDate: '',
       gender: '',
       agree: false,
+      file: '',
     },
     mode: 'onSubmit',
     resolver: yupResolver(schema),
@@ -65,6 +67,8 @@ export const Forms: FC = () => {
   const onSubmit = handleSubmit((data) => {
     // setFormData((state) => [...state, { data, preview }]);
     addData(data);
+    console.log(data);
+
     setValue('');
     reset();
   });
@@ -104,7 +108,8 @@ export const Forms: FC = () => {
         }}
       />
       <label htmlFor="image">
-        <Image setValue={setValue} />
+        {/* <Image setValue={setValue} /> */}
+        <input type="file" {...register('file')} />
       </label>
       <label className="agree" htmlFor="agree">
         Check this box if you want to proceed.

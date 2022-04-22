@@ -10,7 +10,17 @@ interface Props {
 const AppState: FC<Props> = ({ children }) => {
   const initialState = {
     value: '',
-    data: [{ firstName: '', lastName: '', country: '', birthDate: '', gender: '', agree: false }],
+    data: [
+      // {
+      //   firstName: '',
+      //   lastName: '',
+      //   country: '',
+      //   birthDate: '',
+      //   gender: '',
+      //   agree: false,
+      //   file: '',
+      // },
+    ],
   };
   const addValue = (e: any) => {
     dispatch({ type: AppActionKind.SET_VALUE, payload: e });
