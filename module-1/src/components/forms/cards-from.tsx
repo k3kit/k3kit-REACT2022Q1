@@ -1,32 +1,28 @@
 import React, { FC, RefObject } from 'react';
 
 export type UserType = {
-  data: {
-    firstName?: string;
-    lastName?: string;
-    country?: string;
-    birthDate?: string;
-    gender?: string;
-    agree?: boolean;
-  };
-  preview?: string;
+  firstName?: string;
+  lastName?: string;
+  country?: string;
+  birthDate?: string;
+  gender?: string;
+  agree?: boolean;
 };
 interface ICard {
   fromValues: UserType;
 }
 
 export const Cards: FC<ICard> = ({ fromValues }) => {
-  const { data, preview } = fromValues;
+  const { firstName, lastName, country, birthDate, gender, agree } = fromValues;
   return (
     <div className="card">
-      <img className="card-img" src={preview} alt="avatar" />
       <div className="card-description">
-        <p className="first-name">Name: {data.firstName}</p>
-        <p className="email">Surname: {data.lastName}</p>
+        <p className="first-name">Name: {firstName}</p>
+        <p className="email">Surname: {lastName}</p>
         <p>
-          Place and date of birth: {data.country} - {data.birthDate?.toString()}
+          Place and date of birth: {country} - {birthDate?.toString()}
         </p>
-        <p className="gender">Gender: {data.gender ? 'male' : 'female'}</p>
+        <p className="gender">Gender: {gender ? 'male' : 'female'}</p>
       </div>
     </div>
   );

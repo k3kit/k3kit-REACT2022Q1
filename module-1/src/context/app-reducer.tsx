@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export enum AppActionKind {
   SET_VALUE = 'SET_VALUE',
+  SET_DATA_FORM = 'SET_DATA_FORM',
 }
 
 const appReducer = (state: any, action: any) => {
@@ -10,6 +11,11 @@ const appReducer = (state: any, action: any) => {
       return {
         ...state,
         value: action.payload,
+      };
+    case AppActionKind.SET_DATA_FORM:
+      return {
+        ...state,
+        data: [...state.data, action.payload],
       };
     default:
       return state;

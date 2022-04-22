@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { FC, useContext, useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
 import { UserType } from './cards-from';
@@ -6,6 +7,7 @@ import Switch from './switch';
 import { Image } from './images';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import appContext from '../../context/app-context';
 export type Data = {
   firstName: string;
   lastName: string;
@@ -15,9 +17,9 @@ export type Data = {
   agree: boolean;
 };
 
-interface FormData {
-  setFormData: (value: UserType[] | ((prevState: UserType[]) => UserType[])) => void;
-}
+// interface FormData {
+//   setFormData: (value: UserType[] | ((prevState: UserType[]) => UserType[])) => void;
+// }
 
 const schema = yup.object().shape({
   firstName: yup
@@ -38,7 +40,8 @@ const schema = yup.object().shape({
   country: yup.string().required(),
   agree: yup.bool().oneOf([true], 'Accept this box'),
 });
-export const Forms: FC<FormData> = ({ setFormData }) => {
+export const Forms: FC = () => {
+  const { addData } = useContext(appContext);
   const [preview, setValue] = useState<string>();
   const {
     register,
@@ -60,7 +63,8 @@ export const Forms: FC<FormData> = ({ setFormData }) => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    setFormData((state) => [...state, { data, preview }]);
+    // setFormData((state) => [...state, { data, preview }]);
+    addData(data);
     setValue('');
     reset();
   });
