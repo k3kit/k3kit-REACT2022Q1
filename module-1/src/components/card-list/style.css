@@ -32,6 +32,7 @@
   align-items: center;
   padding: 4.5rem 0px;
   min-height: calc(50vh - 60px);
+  flex-direction: column;
 }
 .card-items {
   display: flex;
@@ -83,4 +84,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pages {
+  margin: 20px 0;
+}
+
+.page {
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.current-page {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #7045ff;
+  cursor: default;
+  user-select: none;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+}
+
+.page-item {
+  margin: 0 10px;
+}
+
+.page-link {
+  background-color: #5171ca;
+  position: relative;
+  outline: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 27px;
+  width: 66px;
+  opacity: 1;
 }

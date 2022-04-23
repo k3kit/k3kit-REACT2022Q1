@@ -3,6 +3,7 @@
 export enum AppActionKind {
   SET_VALUE = 'SET_VALUE',
   SET_DATA_FORM = 'SET_DATA_FORM',
+  SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
 }
 
 const appReducer = (state: any, action: any) => {
@@ -11,6 +12,11 @@ const appReducer = (state: any, action: any) => {
       return {
         ...state,
         value: action.payload,
+      };
+    case AppActionKind.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     case AppActionKind.SET_DATA_FORM:
       return {

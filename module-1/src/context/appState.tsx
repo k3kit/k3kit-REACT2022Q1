@@ -21,12 +21,17 @@ const AppState: FC<Props> = ({ children }) => {
       //   file: '',
       // },
     ],
+    currentPage: 1,
+    totalCount: 42,
   };
   const addValue = (e: any) => {
     dispatch({ type: AppActionKind.SET_VALUE, payload: e });
   };
   const addData = (state: any) => {
     dispatch({ type: AppActionKind.SET_DATA_FORM, payload: state });
+  };
+  const setCurrentPage = (page: any) => {
+    dispatch({ type: AppActionKind.SET_CURRENT_PAGE, payload: page });
   };
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [state, dispatch] = useReducer(appReducer, initialState);
@@ -37,6 +42,10 @@ const AppState: FC<Props> = ({ children }) => {
         addValue,
         data: state.data,
         addData,
+        setCurrentPage,
+        perPage: state.perPage,
+        totalCount: state.totalCount,
+        currentPage: state.currentPage,
       }}
     >
       {children}
