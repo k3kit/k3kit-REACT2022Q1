@@ -1,13 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useReducer } from 'react';
-import { UserType } from '../components/forms/cards-from';
+import { Data } from '../components/forms/forms';
 import appContext from './app-context';
 import appReducer, { AppActionKind } from './app-reducer';
 
-interface Props {
-  children: any;
-}
-const AppState: FC<Props> = ({ children }) => {
+const AppState: FC = ({ children }) => {
   const initialState = {
     value: '',
     data: [],
@@ -22,37 +18,37 @@ const AppState: FC<Props> = ({ children }) => {
     species: '',
     card: [],
   };
-  const addValue = (e: any) => {
-    dispatch({ type: AppActionKind.SET_VALUE, payload: e });
+  const addValue = (event: React.FormEvent<HTMLFormElement>) => {
+    dispatch({ type: AppActionKind.SET_VALUE, payload: event });
   };
-  const setStatus = (e: any) => {
-    dispatch({ type: AppActionKind.UPDATE_STATUS, payload: e });
+  const setStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch({ type: AppActionKind.UPDATE_STATUS, payload: event });
   };
-  const setGender = (e: any) => {
-    dispatch({ type: AppActionKind.UPDATE_GENDER, payload: e });
+  const setGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch({ type: AppActionKind.UPDATE_GENDER, payload: event });
   };
-  const setSpecies = (e: any) => {
-    dispatch({ type: AppActionKind.UPDATE_SPECIES, payload: e });
+  const setSpecies = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch({ type: AppActionKind.UPDATE_SPECIES, payload: event });
   };
-  const addData = (state: any) => {
+  const addData = (state: Data) => {
     dispatch({ type: AppActionKind.SET_DATA_FORM, payload: state });
   };
-  const setCurrentPage = (page: any) => {
+  const setCurrentPage = (page: number) => {
     dispatch({ type: AppActionKind.SET_CURRENT_PAGE, payload: page });
   };
   const FetchError = () => {
     dispatch({ type: AppActionKind.FETCH_ERROR });
   };
-  const FetchData = (data: any) => {
+  const FetchData = (data: []) => {
     dispatch({ type: AppActionKind.FETCH_SUCCESS, payload: data });
   };
-  const FetchSlice = (data: any) => {
+  const FetchSlice = (data: []) => {
     dispatch({ type: AppActionKind.FETCH_SLICE, payload: data });
   };
-  const FetchCard = (data: any) => {
+  const FetchCard = (data: []) => {
     dispatch({ type: AppActionKind.FETCH_SINGLE_CARD, payload: data });
   };
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   const [state, dispatch] = useReducer(appReducer, initialState);
   return (
     <appContext.Provider

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 export enum AppActionKind {
   SET_VALUE = 'SET_VALUE',
   SET_DATA_FORM = 'SET_DATA_FORM',

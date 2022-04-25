@@ -1,7 +1,6 @@
-import React, { FC, useContext, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import appContext from '../../context/app-context';
-import HomePage from '../../pages/home-page';
 import Spinner from '../loading/spinner';
 import './style.css';
 function SingleCard() {

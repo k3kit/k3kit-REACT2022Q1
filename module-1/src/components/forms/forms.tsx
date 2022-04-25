@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useContext, useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
@@ -15,12 +14,8 @@ export type Data = {
   birthDate: string;
   gender: string;
   agree: boolean;
-  file: any;
+  file: string;
 };
-
-// interface FormData {
-//   setFormData: (value: UserType[] | ((prevState: UserType[]) => UserType[])) => void;
-// }
 
 const schema = yup.object().shape({
   firstName: yup
@@ -65,10 +60,8 @@ export const Forms: FC = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    // setFormData((state) => [...state, { data, preview }]);
     addData(data);
     console.log(data);
-
     setValue('');
     reset();
   });
