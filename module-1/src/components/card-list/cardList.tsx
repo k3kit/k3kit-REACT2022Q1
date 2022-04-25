@@ -1,77 +1,82 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { FC, useContext, useEffect, useReducer, useState } from 'react';
+import { Link } from 'react-router-dom';
 import appContext from '../../context/app-context';
 import Spinner from '../loading/spinner';
 import { SearchBar } from '../search-bar/search';
 import { CardItem, Icharacter } from './CardItem';
 import { createPages } from './fun';
 import './style.css';
-enum CardActionKind {
-  FETCH_SUCCESS = 'FETCH_SUCCESS',
-  FETCH_ERROR = 'FETCH_ERROR',
-}
-interface CardState {
-  isPending: boolean;
-  error: boolean;
-  character: Icharacter;
-}
-interface CardAction {
-  payload: Icharacter;
-  type: CardActionKind;
-}
-const initialState = { isPending: true, error: false, character: [], totalCount: 0 };
-const reducer = (state: any, action: any) => {
-  const { type } = action;
-  switch (type) {
-    case CardActionKind.FETCH_SUCCESS:
-      return {
-        isPending: false,
-        character: action.payload.results,
-        error: false,
-        totalCount: action.payload.info.count,
-      };
-    case CardActionKind.FETCH_ERROR:
-      return {
-        isPending: false,
-        error: true,
-        character: [],
-      };
-    default:
-      return state;
-  }
-};
+// enum CardActionKind {
+//   FETCH_SUCCESS = 'FETCH_SUCCESS',
+//   FETCH_ERROR = 'FETCH_ERROR',
+// }
+// interface CardState {
+//   isPending: boolean;
+//   error: boolean;
+//   character: Icharacter;
+// }
+// interface CardAction {
+//   payload: Icharacter;
+//   type: CardActionKind;
+// }
 
-export const CardList = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { value, currentPage, setCurrentPage } = useContext(appContext);
-  const pagesCount = Math.ceil(state.totalCount / 20);
-  console.log(pagesCount);
+export const CardList: FC = () => {
+  const {
+    value,
+    currentPage,
+    setCurrentPage,
+    totalCount,
+    isPending,
+    error,
+    character,
+    FetchData,
+    FetchError,
+    FetchSlice,
+    status,
+    gender,
+    species,
+    setStatus,
+    setGender,
+    setSpecies,
+  } = useContext(appContext);
+  const spec = [
+    'Human',
+    'Alien',
+    'Humanoid',
+    'Poopybutthole',
+    'Mythological',
+    'Unknown',
+    'Animal',
+    'Disease',
+    'Robot',
+    'Cronenberg',
+    'Planet',
+  ];
+  const url = `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${value}&status=${status}&gender=${gender}&species=${species}`;
+  const genders = ['female', 'male', 'genderless', 'unknown'];
+  const pagesCount = Math.ceil(totalCount / 20);
   const pages: any[] = [];
   createPages(pages, pagesCount, currentPage);
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
-          `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${value}`
-        );
+        const response = await fetch(url);
         if (response.status >= 400) {
-          dispatch({ type: CardActionKind.FETCH_ERROR });
+          FetchError();
           setCurrentPage(1);
+          console.log(url);
         } else {
           const data = await response.json();
-          console.log(state.character);
-
-          dispatch({
-            type: CardActionKind.FETCH_SUCCESS,
-            payload: data,
-          });
+          FetchData(data);
+          console.log(url);
         }
       } catch (err) {
         console.log(err);
       }
     };
     getData();
-  }, [value, currentPage]);
+  }, [url]);
 
   const handlePreviousPage = () => {
     const a = currentPage + 1;
@@ -83,17 +88,20 @@ export const CardList = () => {
     setCurrentPage(a);
   };
 
-  const handleFPage = () => {
-    state.character.slice(10);
-    console.log(state.character.slice(10));
+  const handleStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setStatus(event.target.value);
   };
-  const handleSPage = () => {};
-  const handleTPage = () => {};
+  const handleGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setGender(event.target.value);
+  };
+  const handleSpecies = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSpecies(event.target.value);
+  };
   return (
     <>
       <SearchBar />
-      {state.error && <h2 className="error">No Characters Found</h2>}
-      {state.isPending && (
+      {error && <h2 className="error">No Characters Found</h2>}
+      {isPending && (
         <div className="loader">
           <Spinner />
         </div>
@@ -116,10 +124,42 @@ export const CardList = () => {
                 Previous
               </button>
             </li>
+            <li className="page-item">
+              <span>Status</span>
+              <select className="page-link" onChange={handleStatus}>
+                <option value="Alive">Alive</option>
+                <option value="Dead">Dead</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+            </li>
+            <li className="page-item">
+              <span>Species</span>
+              <select className="page-link" onChange={handleSpecies}>
+                {spec.map((ele, i) => {
+                  return (
+                    <option value={ele} key={i}>
+                      {ele}
+                    </option>
+                  );
+                })}
+              </select>
+            </li>
+            <li className="page-item">
+              <span>Genders</span>
+              <select className="page-link" onChange={handleGender}>
+                {genders.map((el, i) => {
+                  return (
+                    <option value={el} key={i}>
+                      {el}
+                    </option>
+                  );
+                })}
+              </select>
+            </li>
           </ul>
         </nav>
-        <nav>
-          <ul className="pagination">
+        {/* <nav> */}
+        {/* <ul className="pagination">
             <li className="page-item">
               <button className="page-link" onClick={handleFPage}>
                 20
@@ -136,11 +176,15 @@ export const CardList = () => {
               </button>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <div className="card-items">
-          {state.character.map((char: Icharacter, i: any) => {
+          {character.map((char: Icharacter, i: any) => {
             const idx = i;
-            return <CardItem key={idx} char={char} />;
+            return (
+              <Link key={idx} to={`${char.id}`}>
+                <CardItem key={idx} char={char} />
+              </Link>
+            );
           })}
         </div>
         <div className="pages">

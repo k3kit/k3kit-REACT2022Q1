@@ -107,6 +107,7 @@
 .pagination {
   display: flex;
   list-style-type: none;
+  align-items: flex-end;
 }
 
 .page-item {
@@ -114,7 +115,7 @@
 }
 
 .page-link {
-  background-color: #5171ca;
+  background-color: #3a3248;
   position: relative;
   outline: none;
   border-radius: 50px;
@@ -124,5 +125,7 @@
   cursor: pointer;
   height: 27px;
   width: 66px;
+  color: white;
   opacity: 1;
+  border: #3a3248;
 }

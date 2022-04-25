@@ -54,3 +54,6 @@ body {
   flex-direction: column;
   margin: auto;
 } */
+a {
+  text-decoration: none;
+}
