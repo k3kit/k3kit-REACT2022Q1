@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/about-page';
 import HomePage from './pages/home-page';
 import NotfoundPage from './pages/notefount-page';
-import './App.css';
 import Layout from './router/layout/Layout';
 import FormPage from './pages/form-page';
 import AppState from './context/appState';

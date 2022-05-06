@@ -1,12 +1,12 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
-import { UserType } from './cards-from';
 import Switch from './switch';
-import { Image } from './images';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import appContext from '../../context/app-context';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { FormSlice } from '../../store/reducers/FormSlice';
+
 export type Data = {
   firstName: string;
   lastName: string;
@@ -21,7 +21,9 @@ const schema = yup.object().shape({
   firstName: yup
     .string()
     .matches(/^([^0-9]*)$/, 'first name should not contain numbers')
-    .required('first name is a required field'),
+    .required('first name is a required field')
+    .min(1)
+    .max(20),
   lastName: yup
     .string()
     .matches(/^([^0-9]*)$/, 'last name should not contain numbers')
@@ -36,8 +38,11 @@ const schema = yup.object().shape({
   country: yup.string().required(),
   agree: yup.bool().oneOf([true], 'Accept this box'),
 });
+
 export const Forms: FC = () => {
-  const { addData } = useContext(appContext);
+  const { addData } = FormSlice.actions;
+  const dispatch = useAppDispatch();
+  const { formData } = useAppSelector((state) => state.formReducer);
   const [preview, setValue] = useState<string>();
   const {
     register,
@@ -60,8 +65,9 @@ export const Forms: FC = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    addData(data);
     console.log(data);
+    dispatch(addData(data));
+    console.log(formData);
     setValue('');
     reset();
   });
@@ -101,7 +107,6 @@ export const Forms: FC = () => {
         }}
       />
       <label htmlFor="image">
-        {/* <Image setValue={setValue} /> */}
         <input type="file" {...register('file')} />
       </label>
       <label className="agree" htmlFor="agree">

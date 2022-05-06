@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC } from 'react';
 import './style.css';
 export interface Icharacter {
@@ -21,7 +22,7 @@ export interface Icharacter {
   created?: string;
 }
 export interface prop {
-  char: Icharacter;
+  char: any;
 }
 
 export const CardItem: FC<prop> = ({ char }) => {

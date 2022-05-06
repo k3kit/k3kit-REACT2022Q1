@@ -1,18 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useState } from 'react';
 import { Cards, UserType } from '../../components/forms/cards-from';
 import { Forms } from '../../components/forms/forms';
 import appContext from '../../context/app-context';
+import { useAppSelector } from '../../hooks/redux';
 import './style.css';
 const FormPage = () => {
-  const { data } = useContext(appContext);
-  // const [formData, setFormData] = useState<UserType[]>([]);
+  const { formData } = useAppSelector((state) => state.formReducer);
+  console.log(formData);
+
   return (
     <section className="form-section" data-testid="form-page">
       <Forms />
       <div>
-        {data.map((item: UserType, i: number) => {
+        {formData.map((item, i: number) => {
           const idx = i;
-          return <Cards fromValues={item} key={idx} />;
+          return <Cards item={item} key={idx} />;
         })}
       </div>
     </section>

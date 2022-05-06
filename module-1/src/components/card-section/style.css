@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0px;
-  min-height: calc(50vh - 60px);
+  /* min-height: calc(50vh - 60px); */
   flex-direction: column;
 }
 .card-items {
@@ -118,7 +118,7 @@
   background-color: #3a3248;
   position: relative;
   outline: none;
-  border-radius: 50px;
+  border-radius: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,9 +128,16 @@
   color: white;
   opacity: 1;
   border: #3a3248;
+  font-size: 1rem;
 }
 
 .pages-count {
   font-size: 1.5rem;
   font-weight: 800;
+}
+
+.page-link[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
 }

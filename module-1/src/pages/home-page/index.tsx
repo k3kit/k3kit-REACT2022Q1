@@ -1,11 +1,10 @@
 import React from 'react';
-import { CardList } from '../../components/card-list/cardList';
-import FormPage from '../form-page';
+import { CardSection } from '../../components/card-section/CardSection';
 
 const HomePage = () => {
   return (
-    <div data-testid="home-page">
-      <CardList />
+    <div>
+      <CardSection />
     </div>
   );
 };

@@ -9,9 +9,7 @@
   border-radius: 0.5rem;
   margin: 0.75rem;
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
-
   width: 400px;
-  height: 669px;
 }
 .single-card-img {
   width: 100%;
@@ -37,4 +35,8 @@
   padding: 4.5rem 0px;
   min-height: calc(50vh - 60px);
   flex-direction: row;
+}
+
+.single-card-description {
+  text-align: center;
 }

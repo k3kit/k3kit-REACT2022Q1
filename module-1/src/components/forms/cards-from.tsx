@@ -8,24 +8,23 @@ export type UserType = {
   birthDate?: string;
   gender?: string;
   agree?: boolean;
-  file: any | undefined;
+  file: string;
 };
 interface ICard {
-  fromValues: UserType;
+  item: any;
 }
 
-export const Cards: FC<ICard> = ({ fromValues }) => {
-  const { firstName, lastName, country, birthDate, gender, file } = fromValues;
+export const Cards: FC<ICard> = ({ item }) => {
   return (
-    <div className="card">
-      <img className="card-img" src={URL.createObjectURL(new Blob([file[0]]))} alt="avatar" />
+    <div className="card-form">
+      <img className="card-img" src={URL.createObjectURL(new Blob([item.file[0]]))} alt="avatar" />
       <div className="card-description">
-        <p className="first-name">Name: {firstName}</p>
-        <p className="email">Surname: {lastName}</p>
+        <p className="first-name">Name: {item.firstName}</p>
+        <p className="email">Surname: {item.lastName}</p>
         <p>
-          Place and date of birth: {country} - {birthDate?.toString()}
+          Place and date of birth: {item.country} - {item.birthDate?.toString()}
         </p>
-        <p className="gender">Gender: {gender ? 'male' : 'female'}</p>
+        <p className="gender">Gender: {item.gender ? 'male' : 'female'}</p>
       </div>
     </div>
   );
