@@ -5,21 +5,18 @@ import HomePage from './pages/home-page';
 import NotfoundPage from './pages/notefount-page';
 import Layout from './router/layout/Layout';
 import FormPage from './pages/form-page';
-import AppState from './context/appState';
 import { SingleCard } from './components/single-card/SingleCard';
 function App() {
   return (
-    <AppState>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/:id" element={<SingleCard />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="form" element={<FormPage />} />
-          <Route path="*" element={<NotfoundPage />} />
-        </Route>
-      </Routes>
-    </AppState>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/:id" element={<SingleCard />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="form" element={<FormPage />} />
+        <Route path="*" element={<NotfoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 

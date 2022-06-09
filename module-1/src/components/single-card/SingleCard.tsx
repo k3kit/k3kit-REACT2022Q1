@@ -16,7 +16,6 @@ const SingleCard = () => {
   const goBack = () => {
     navigate(-1);
   };
-  console.log(singleCard);
 
   return (
     <section className="single-card-section">

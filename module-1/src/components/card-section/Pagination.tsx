@@ -9,7 +9,6 @@ const Pagination = () => {
   const dispatch = useAppDispatch();
   const { count, pages } = useAppSelector((state) => state.userReducer);
   const pagesCount = Math.ceil(count / 20);
-  console.log(inc(1));
 
   return (
     <nav>

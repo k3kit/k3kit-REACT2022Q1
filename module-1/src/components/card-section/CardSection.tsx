@@ -15,7 +15,6 @@ export const CardSection: FC = () => {
   );
 
   useEffect(() => {
-    console.log(character);
     dispatch(
       fetchCharacter({
         value,

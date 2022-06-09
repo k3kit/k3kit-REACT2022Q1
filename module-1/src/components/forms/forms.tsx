@@ -65,9 +65,7 @@ export const Forms: FC = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
     dispatch(addData(data));
-    console.log(formData);
     setValue('');
     reset();
   });
