@@ -41,7 +41,7 @@ export const CardSection: FC = () => {
           {character.map((char, i: number) => {
             const idx = i;
             return (
-              <Link key={idx} to={`${char.id}`}>
+              <Link key={idx} to={`character/${char.id}`}>
                 <CardItem key={idx} char={char} />
               </Link>
             );
